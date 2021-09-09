@@ -61,3 +61,29 @@ const str = "А роза упала на лапу Азора";
 console.log(str.slice(7, 12));
 console.log(str.slice(21, 26));
 console.log(str.slice(7));
+
+const option = {
+  name: "test",
+  width: 1024,
+  height: 1024,
+  color: {
+    border: "red",
+    bg: "black",
+  },
+};
+console.log(Object.keys(option).length);
+// let counter = 0;
+// for (let key in option) {
+//   if (typeof option[key] === "object") {
+//     for (let i in option[key]) {
+//       console.log(`Свойство ${i} имеет значение ${option[key][i]} `);
+//       counter++;
+//     }
+//   } else {
+//     console.log(`Свойство ${key} имеет значение ${option[key]} `);
+//     counter++;
+//   }
+// }
+// console.log(counter);
+const { border, bg } = option.color;
+console.log(border);
