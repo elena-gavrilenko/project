@@ -57,20 +57,33 @@ const personalMovieDB = {
   },
   writeYourGenres: function () {
     for (let i = 1; i <= 3; i++) {
-      personalMovieDB.genres[i - 1] = prompt(
-        `Ваш любимый жанр под номером ${i}`
-      );
+      let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+      if (genre == null || genre == "") {
+        console.log("Некорректный ввод");
+        i--;
+      } else {
+        personalMovieDB.genres[i - 1] = genre;
+      }
     }
-    console.log(personalMovieDB);
+    personalMovieDB.genres.forEach((element, i) => {
+      console.log(`Любимый жанр № ${i + 1}-${element}`);
+          });
+  },
+  toggleVisibleMyDB: function () {
+    if (personalMovieDB.privet) {
+      personalMovieDB.privet = false;
+    } else personalMovieDB.privet = true;
   },
 };
-personalMovieDB.start();
-console.log(personalMovieDB.count);
-personalMovieDB.rememberMyFilms();
-console.log(personalMovieDB.movies);
-personalMovieDB.detectPersonalLevel();
-personalMovieDB.showMyDB(hidden);
-personalMovieDB.writeYourGenres();
+// personalMovieDB.start();
+// console.log(personalMovieDB.count);
+// personalMovieDB.rememberMyFilms();
+// console.log(personalMovieDB.movies);
+// personalMovieDB.detectPersonalLevel();
+// personalMovieDB.showMyDB();
+// personalMovieDB.writeYourGenres();
+// personalMovieDB.toggleVisibleMyDB();
+// console.log(personalMovieDB.privet);
 // const str = "А роза упала на лапу Азора";
 // console.log(str.slice(7, 12));
 // console.log(str.slice(21, 26));
